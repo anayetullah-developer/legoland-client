@@ -70,14 +70,16 @@ const Register = () => {
     } 
   
     return (
-        <div className="container">
-        <Container>
+        <div className="">
+        <Container fluid>
             <Row>
-                <Col md={5}>
+                <Col className="vertical-height" md={5}>
                     <h1>somehtihg</h1>
                 </Col>
-                <Col md={7}>
-                <Form className="w-75 mx-auto">
+                <Col className="bg-tertiary vertical-height" md={7}>
+                <button className="btn btn-link text-white">Login</button>
+                <button className="btn btn-link text-white">Register</button>
+                <Form className="p-md-5 w-75 mx-auto">
           <Form.Group className="mb-3" controlId="">
             <Form.Label>Name</Form.Label>
             <Form.Control

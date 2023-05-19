@@ -21,6 +21,10 @@ a {
   text-decoration: none;
 }
 
+.vertical-height {
+  height: 100vh;
+}
+
 
 .text-primary {
   color: #181D4E !important;
@@ -48,6 +52,10 @@ a {
 
 .bg-secondary {
   background-color: #12AEE0  !important;
+}
+
+.bg-tertiary {
+  background-color:  #59AF58 !important;;
 }
 
 .btn-outline-primary {
