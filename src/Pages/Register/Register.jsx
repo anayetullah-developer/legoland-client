@@ -1,77 +1,83 @@
-import React, { useContext, useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { useContext, useState } from "react";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../../providers/AuthProvider";
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Register = () => {
-//     const [email, setEmail] = useState('');
-//     const [password, setPassword] = useState('');
-//     const [Emailerror, setEmailError] = useState('');
-//     const [PasswordError, setPasswordError] = useState('');
-//     const [success, setSuccess] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [Emailerror, setEmailError] = useState('');
+    const [PasswordError, setPasswordError] = useState('');
+    const [success, setSuccess] = useState('');
   
-//     const navigation = useNavigate();
-//     const {registerUser, updateUser, user} = useContext(AuthContext);
+    const navigation = useNavigate();
+    const {registerUser, updateUser, user} = useContext(AuthContext);
     
-//     const emailHandler = (e) => {
-//       const emailInput = e.target.value;
+    const emailHandler = (e) => {
+      const emailInput = e.target.value;
   
-//       setEmail(emailInput);
+      setEmail(emailInput);
   
-//       const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-//       if(!regex.test(email)) {
-//         setEmailError('Invlaid Email');
-//       }else {
-//         setEmailError('')
-//       }
-//     }
+      const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if(!regex.test(email)) {
+        setEmailError('Invlaid Email');
+      }else {
+        setEmailError('')
+      }
+    }
   
-//     const passwordHandler = (e) => {
-//       const passwordInput = e.target.value;
-//       setPassword(passwordInput);
+    const passwordHandler = (e) => {
+      const passwordInput = e.target.value;
+      setPassword(passwordInput);
   
-//       const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[^\s]{8,}$/;
-//       if(!regex.test(password)) {
-//         setPasswordError('Password should contain at least one lowercase, one uppercase, one number and one special character (@$!%*?&)')
-//       }else {
-//         setPasswordError('')
-//       }
-//     }
+      const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[^\s]{8,}$/;
+      if(!regex.test(password)) {
+        setPasswordError('Password should contain at least one lowercase, one uppercase, one number and one special character (@$!%*?&)')
+      }else {
+        setPasswordError('')
+      }
+    }
   
-//     const submitHandler = (e) => {
-//       e.preventDefault();
-//       const form = e.target;
-//       const name = form.name.value;
-//       const photoURL = form.photo.value;
+    const submitHandler = (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value;
+      const photoURL = form.photo.value;
   
-//       if(Emailerror) {
-//         form.email.focus();
-//         return;
-//       }else if(PasswordError) {
-//         form.password.focus();
-//         return;
-//       }
+      if(Emailerror) {
+        form.email.focus();
+        return;
+      }else if(PasswordError) {
+        form.password.focus();
+        return;
+      }
       
-//       registerUser(email, password)
-//       .then((userCredential) => {
-//         setSuccess('Congratulations! You have successfully registered');
-//         navigation("/login")
-//       })
-//       .catch((error) => {
-//       });
+      registerUser(email, password)
+      .then((userCredential) => {
+        setSuccess('Congratulations! You have successfully registered');
+        navigation("/login")
+      })
+      .catch((error) => {
+      });
   
-//       updateUser(name, photoURL)
-//       .then(() => {   
-//       }).catch((error) => {
+      updateUser(name, photoURL)
+      .then(() => {   
+      }).catch((error) => {
       
-//     });
+    });
   
-//     } 
+    } 
   
     return (
-        <div className="mx-auto container">
-        <Form className="w-75 mx-auto">
+        <div className="container">
+        <Container>
+            <Row>
+                <Col md={5}>
+                    <h1>somehtihg</h1>
+                </Col>
+                <Col md={7}>
+                <Form className="w-75 mx-auto">
           <Form.Group className="mb-3" controlId="">
             <Form.Label>Name</Form.Label>
             <Form.Control
@@ -142,6 +148,9 @@ const Register = () => {
           </Form.Text>
           <Form.Group className="mb-3" controlId="5"></Form.Group>
         </Form>
+                </Col>
+            </Row>
+        </Container>
       </div>
     );
 };
