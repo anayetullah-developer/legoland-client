@@ -3,6 +3,7 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Lottie from "lottie-react";
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import regianimation from "../../assets/134945-zpunet-icon.json"
 
 const Login = () => {
@@ -10,8 +11,8 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const location = useLocation();
-    const from = location?.state?.from?.pathname || "/";
+    // const location = useLocation();
+    // const from = location?.state?.from?.pathname || "/";
 
     const loginHandler = (e) => {
         e.preventDefault();
@@ -74,60 +75,38 @@ const Login = () => {
               <button className="btn btn-link text-white">Login</button>
               <button className="btn btn-link text-white">Register</button>
               <Form className="" onSubmit={loginHandler}>
-                <Form.Group className="mb-3" controlId="">
-                  <Form.Label className="text-white">Name</Form.Label>
-                  <Form.Control
-                    type="text"
-                    required
-                    name="name"
-                    placeholder="Enter Name"
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="1">
-                  <Form.Label className="text-white">Photo url</Form.Label>
-                  <Form.Control
-                    type="text"
-                    required
-                    name="photo"
-                    placeholder="Enter photo url"
-                  />
-                </Form.Group>
+                
                 <Form.Group className="mb-3" controlId="2">
                   <Form.Label className="text-white">Email address</Form.Label>
                   <Form.Control
                     type="email"
-                    className={Emailerror ? "border-danger" : ""}
                     required
-                    value={email}
-                    onChange={emailHandler}
-                    onClick={emailHandler}
                     name="email"
                     placeholder="Enter email"
                   />
-                  <Form.Text className="text-primary">{Emailerror}</Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="3">
                   <Form.Label className="text-white">Password</Form.Label>
-                  <Form.Control
-                    className={PasswordError ? "border-danger" : ""}
+                  <Form.Control 
                     type="password"
-                    value={password}
                     required
-                    onClick={passwordHandler}
-                    onChange={passwordHandler}
                     name="password"
                     placeholder="Enter Password"
                   />
 
-                  <Form.Text className="text-danger">{PasswordError}</Form.Text>
                 </Form.Group>
                 <Button
                   type="submit"
                   className="mb-2 bg-white text-tertiary border-0"
                 >
-                  Register
+                  Login
                 </Button>
-                <p className="text-success">{success}</p>
+                <Button variant="primary" type="submit" className='mb-2 btn btn-primary text-white' onClick={handleGoogleSignIn}>
+               <FaGoogle/> Login with google
+            </Button> <br/>
+            <Button variant="primary" type="submit" className='mb-2 btn btn-dark text-white' onClick={handleGithubSignIn}>
+            <FaGithub/> Login with github
+            </Button> <br/>
                 <br />
                 <Form.Text className="ms-2 text-white">
                   Already have an account? <Link className="text-white text-decoration-underline" to="/login">Login</Link>
