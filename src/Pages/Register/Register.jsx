@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Lottie from "lottie-react";
 import regAnimation from "../../assets/134945-zpunet-icon.json";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -11,7 +12,9 @@ const Register = () => {
   const [Emailerror, setEmailError] = useState("");
   const [PasswordError, setPasswordError] = useState("");
   const [success, setSuccess] = useState("");
-
+  const [inputType, setInputType] = useState("password");
+  const [show, setShow] = useState(false);
+  
   const navigation = useNavigate();
   const { registerUser, updateUser, logoutUser } = useContext(AuthContext);
 
@@ -43,6 +46,15 @@ const Register = () => {
       setPasswordError("");
     }
   };
+
+  const showPassword = (condition) => {
+    setShow(!show)
+    if(!condition) {
+      setInputType("text")
+    }else {
+      setInputType("password")
+    }
+  }
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -125,9 +137,10 @@ const Register = () => {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="3">
                   <Form.Label className="text-white">Password</Form.Label>
+                  <div className= "position-relative">
                   <Form.Control
                     className={PasswordError ? "border-danger" : ""}
-                    type="password"
+                    type={inputType}
                     value={password}
                     required
                     onChange={passwordHandler}
@@ -135,6 +148,13 @@ const Register = () => {
                     placeholder="Enter Password"
                   />
 
+                    {show ?
+                      <FaEyeSlash className="text-muted position-absolute eye-icon-placement" onClick={() => showPassword(true)}/>
+                    :
+                      <FaEye className="text-muted position-absolute eye-icon-placement" onClick={() => showPassword(false)}/>
+                    }
+                    
+                  </div>
                   <Form.Text className="text-white">{PasswordError}</Form.Text>
                 </Form.Group>
                 <Button

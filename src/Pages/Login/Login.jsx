@@ -3,12 +3,24 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Lottie from "lottie-react";
-import { FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import regianimation from "../../assets/134945-zpunet-icon.json";
 
 const Login = () => {
-  const { loginUser, loginWithGoogle}  = useContext(AuthContext); //loading }
+  const { loginUser, loginWithGoogle } = useContext(AuthContext); //loading }
   const [error, setError] = useState("");
+  const [show, setShow] = useState(false);
+  const [inputType, setInputType] = useState("password");
+
+  const showPassword = (condition) => {
+    setShow(!show)
+    if(!condition) {
+      setInputType("text")
+    }else {
+      setInputType("password")
+    }
+  }
+
   const navigate = useNavigate();
 
   // const location = useLocation();
@@ -82,12 +94,22 @@ const Login = () => {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="3">
                   <Form.Label className="text-white">Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    required
-                    name="password"
-                    placeholder="Enter Password"
-                  />
+                  <div className= "position-relative">
+                    <Form.Control
+                      
+                      type={inputType}
+                      required
+                      name="password"
+                      placeholder="Enter Password"
+                    />
+
+                    {show ?
+                      <FaEyeSlash className="text-muted position-absolute eye-icon-placement" onClick={() => showPassword(true)}/>
+                    :
+                      <FaEye className="text-muted position-absolute eye-icon-placement" onClick={() => showPassword(false)}/>
+                    }
+                    
+                  </div>
                 </Form.Group>
                 <Button
                   type="submit"

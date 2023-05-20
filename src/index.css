@@ -145,6 +145,11 @@ a {
   height: 40px;
 }
 
+.eye-icon-placement {
+  top: 12px;
+  right: 10px;
+}
+
 /*============ Home carousel =================*/
 
 .carousel-image {
