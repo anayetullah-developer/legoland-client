@@ -3,12 +3,11 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Lottie from "lottie-react";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 import regianimation from "../../assets/134945-zpunet-icon.json";
 
 const Login = () => {
-  const { loginUser, loginWithGoogle, loginWithGithub, loading } =
-    useContext(AuthContext);
+  const { loginUser, loginWithGoogle}  = useContext(AuthContext); //loading }
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -23,8 +22,9 @@ const Login = () => {
     const password = form.password.value;
 
     loginUser(email, password)
-      .then((userCredential) => {
-        navigate(from, { replace: true });
+      .then(() => {
+        navigate("/");
+        // navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -32,24 +32,25 @@ const Login = () => {
       });
   };
 
-  const handleGithubSignIn = () => {
-    loginWithGithub()
-      .then((result) => {
-        if (result) {
-          navigate(from, { replace: true });
-        }
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        setError(errorMessage);
-      });
-  };
+  // const handleGithubSignIn = () => {
+  //   loginWithGithub()
+  //     .then((result) => {
+  //       navigate("/");
+  //       // if (result) {
+  //       //   navigate(from, { replace: true });
+  //       // }
+  //     })
+  //     .catch((error) => {
+  //       const errorMessage = error.message;
+  //       setError(errorMessage);
+  //     });
+  // };
 
   const handleGoogleSignIn = () => {
     loginWithGoogle()
-      .then((result) => {
-        const user = result.user;
-        navigate(from, { replace: true });
+      .then(() => {
+        navigate("/");
+        // navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -114,7 +115,9 @@ const Login = () => {
                     Register
                   </Link>
                 </Form.Text>
-                <Form.Group className="mb-3" controlId="5"></Form.Group>
+                <Form.Group className="mb-3" controlId="5">
+                  <Form.Text>{error}</Form.Text>
+                </Form.Group>
               </Form>
             </div>
           </Col>
