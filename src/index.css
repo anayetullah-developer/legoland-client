@@ -118,7 +118,7 @@ a {
 }
 
 .tagline {
-  font-size: 15px;
+  font-size: 14px;
   color: #12AEE0;
   font-weight: 500;
   letter-spacing: 2px;
@@ -139,7 +139,7 @@ a {
   padding-bottom: 5px;
   border-bottom: 2px solid transparent;
   max-width: fit-content !important;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .navlink:hover{
@@ -157,13 +157,33 @@ a {
 }
 
 /*============ Home carousel =================*/
-
-.carousel-image {
-  height: 400px;
-  mix-blend-mode: darken;
+.top-25 {
+  top: 30%;
 }
 
-.carousel-bg {
+
+
+.carousel-heading {
+  font-size: 60px;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 700;
+  z-index: 999;
+}
+
+.carousel-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+}
+.carousel-image {
+  height: 100vh;
+}
+
+.z-index {
+  z-index: 999;
+}
+
+.overlay {
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
@@ -180,11 +200,29 @@ a {
   outline: none;
 }
 
-.cursor-default {
-    cursor: default !important;
+.cursor-pointer {
+    cursor: pointer !important;
 }
 
 
+@media screen and (max-width: 576px) {
+  .carousel-image {
+    height: 50vh;
+    mix-blend-mode: darken;
+  }
+
+  .carousel-heading {
+    font-size: 30px;
+    font-family: 'Quicksand', sans-serif !important;
+    font-weight: 700;
+  }
+  
+  .carousel-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
 
 
 /*FONTS*/

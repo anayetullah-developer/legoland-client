@@ -1,9 +1,9 @@
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
-import database from "../../assets/server.png";
-import nodejs from "../../assets/nodejs.png";
-import express from "../../assets/expressjs.png";
-import token from "../../assets/token.jpg";
+import database from "../../assets/blog/server.png";
+import nodejs from "../../assets/blog/nodejs.png";
+import express from "../../assets/blog/expressjs.png";
+import token from "../../assets/blog/token.jpg";
 import { Link } from "react-router-dom";
 const Blogs = () => {
   return (
@@ -11,7 +11,7 @@ const Blogs = () => {
     <h1 className="text-center my-5">Blogs</h1>
       <div className="row">
         <div className="col-md-6">
-          <div className="card mb-3 " style={{ "max-width": "540px" }}>
+          <div className="card mb-3 shadow-lg" style={{ "max-width": "540px" }}>
             <div className="row g-0">
               <div className="col-md-4">
                 <img
@@ -53,7 +53,7 @@ const Blogs = () => {
               </div>
               <div className="col-md-8">
                 <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
+                  <h5 className="card-title">What is MongoDB aggregate</h5>
                   <p className="card-text">
                     This is a wider card with supporting text below as a natural
                     lead-in to additional content. This content is a little bit

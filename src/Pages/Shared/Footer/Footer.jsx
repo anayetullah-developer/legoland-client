@@ -47,7 +47,7 @@ const Footer = () => {
                       type="email"
                       placeholder="Enter your email address"
                     />
-                    <FaRegArrowAltCircleRight className="fs-5"/>
+                    <FaRegArrowAltCircleRight className="fs-5 cursor-pointer"/>
                   </InputGroup>
                 </div>
               </Form.Group>
