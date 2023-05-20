@@ -81,8 +81,6 @@ const Register = () => {
           </Col>
           <Col className="bg-tertiary vertical-height" md={7}>
             <div className="p-md-5 w-75 mx-auto">
-              <button className="btn btn-link text-white">Login</button>
-              <button className="btn btn-link text-white">Register</button>
               <Form className="">
                 <Form.Group className="mb-3" controlId="">
                   <Form.Label className="text-white">Name</Form.Label>
