@@ -3,8 +3,7 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Lottie from "lottie-react";
-import regAnimation from "../../assets/134945-zpunet-icon.json"
-
+import regAnimation from "../../assets/134945-zpunet-icon.json";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -14,14 +13,15 @@ const Register = () => {
   const [success, setSuccess] = useState("");
 
   const navigation = useNavigate();
-  const { registerUser, updateUser, user } = useContext(AuthContext);
+  const { registerUser, updateUser, logoutUser } = useContext(AuthContext);
 
   const emailHandler = (e) => {
     const emailInput = e.target.value;
 
     setEmail(emailInput);
 
-    const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    const regex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (!regex.test(emailInput)) {
       setEmailError("Please, Enter a valid email");
     } else {
@@ -33,7 +33,8 @@ const Register = () => {
     const passwordInput = e.target.value;
     setPassword(passwordInput);
 
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const regex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!regex.test(passwordInput)) {
       setPasswordError(
         "Password should contain at least one lowercase, one uppercase, one number and one special character (@$!%*?&)"
@@ -58,15 +59,24 @@ const Register = () => {
     }
 
     registerUser(email, password)
-      .then((userCredential) => {
+      .then(() => {
+
+        updateUser(name, photoURL)
+          .then(() => {})
+          .catch(() => {});
+
+        logoutUser()
+          .then(() => {
+            // Sign-out successful.
+          })
+          .catch(() => {
+            // An error happened.
+          });
+          
         setSuccess("Congratulations! You have successfully registered");
         navigation("/login");
       })
-      .catch((error) => {});
-
-    updateUser(name, photoURL)
-      .then(() => {})
-      .catch((error) => {});
+      .catch(() => {});
   };
 
   return (
@@ -75,8 +85,8 @@ const Register = () => {
         <Row>
           <Col className="vertical-height d-none d-md-block" md={5}>
             <div className="p-md-5">
-                <h3>Get more things done with Loggin platform.</h3>
-                <Lottie animationData={regAnimation} loop={true}/>
+              <h3>Get more things done with Loggin platform.</h3>
+              <Lottie animationData={regAnimation} loop={true} />
             </div>
           </Col>
           <Col className="bg-tertiary vertical-height" md={7}>
@@ -136,7 +146,13 @@ const Register = () => {
                 <p className="text-success">{success}</p>
                 <br />
                 <Form.Text className="ms-2 text-white">
-                  Already have an account? <Link className="text-white text-decoration-underline" to="/login">Login</Link>
+                  Already have an account?{" "}
+                  <Link
+                    className="text-white text-decoration-underline"
+                    to="/login"
+                  >
+                    Login
+                  </Link>
                 </Form.Text>
                 <Form.Group className="mb-3" controlId="5"></Form.Group>
               </Form>
