@@ -42,7 +42,7 @@ const NavigationBar = () => {
                 Home
               </NavLink>
               <NavLink
-                to="/blog"
+                to="/all-toys"
                 className={({ isActive }) =>
                   isActive
                     ? "navlink me-md-4 mb-md-0 mb-2 text-primary"
@@ -54,7 +54,7 @@ const NavigationBar = () => {
               {user ?
                 <>
                   <NavLink
-                    to="/blogs"
+                    to="/my-toys"
                     className={({ isActive }) =>
                       isActive
                         ? "navlink me-md-4 mb-md-0 mb-2 text-primary"
@@ -64,7 +64,7 @@ const NavigationBar = () => {
                     My Toys
                   </NavLink>
                   <NavLink
-                    to="/blog"
+                    to="/add-toy"
                     className={({ isActive }) =>
                       isActive
                         ? "navlink me-md-4 mb-md-0 mb-2 text-primary"

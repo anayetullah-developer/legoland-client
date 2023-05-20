@@ -93,6 +93,7 @@ const Register = () => {
 
   return (
     <div className="">
+      <h1 className="text-center mb-5 mt-3">Login</h1>
       <Container fluid>
         <Row>
           <Col className="vertical-height d-none d-md-block" md={5}>

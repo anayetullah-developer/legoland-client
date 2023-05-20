@@ -1,6 +1,5 @@
-import React from "react";
 import { Carousel } from "react-bootstrap";
-import img1 from "../../assets/banner/1.jpg";
+// import img1 from "../../assets/banner/1.jpg";
 import img2 from "../../assets/banner/2.jpg";
 import img3 from "../../assets/banner/3.jpg";
 import img4 from "../../assets/banner/4.jpg";
@@ -17,7 +16,7 @@ const Slider = () => {
             />
             <div className="position-absolute top-0 start-0 overlay d-block w-100 h-100">hi</div>
           </div>
-          <Carousel.Caption className="top-25 z-index">
+          <Carousel.Caption className="top-25 z-index wc-50 mx-auto">
               <h2 className="carousel-heading">
                 Get a bonus after the first order
               </h2>
@@ -25,6 +24,7 @@ const Slider = () => {
                 The best offer for our regular customer including free shipping
                 on your birthday
               </p>
+              <button className="btn btn-solid-primary">Get Bonus</button>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item className="carousel-bg">
@@ -36,13 +36,14 @@ const Slider = () => {
             />
             <div className="position-absolute top-0 start-0 overlay d-block w-100 h-100">hi</div>
           </div>
-          <Carousel.Caption className="top-25 z-index">
+          <Carousel.Caption className="top-25 z-index wc-50 mx-auto">
             <h2 className="carousel-heading">
               Pick the best toy for your kids
             </h2>
             <p className="carousel-desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              We offer a premium service whether you are shopping at one of our flagship stores or via online w-50 mx-auto
             </p>
+            <button className="btn btn-solid-primary">Discover Now</button>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item className="carousel-bg">
@@ -53,11 +54,11 @@ const Slider = () => {
             alt="Third slide"
           />
            <div className="position-absolute top-0 start-0 overlay d-block w-100 h-100">hi</div></div>
-          <Carousel.Caption className="top-25 z-index">
-            <h2 className="carousel-heading">Third slide label</h2>
-            <p className="carousel-desc">
+          <Carousel.Caption className="top-25 z-index wc-50 mx-auto">
+            <h2 className="carousel-heading">We instruct you how to prepare</h2>
+            {/* <p className="carousel-desc">
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            </p> */}
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

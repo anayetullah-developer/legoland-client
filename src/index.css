@@ -90,23 +90,33 @@ a {
   font-weight: 700;
   font-size: 15px;
   border-radius: 35px;
-
+  padding: 10px 35px;
 }
 
 .btn-solid-primary:hover {
-  border: none;
-  color: #fff;
   background-color: #0691c0;
-  font-weight: 700;
-  font-size: 15px;
 }
 
 .btn-solid-primary:active {
+  background-color: #0691c0 !important;
+}
+
+.btn-solid-secondary {
   border: none;
-  color: #fff;
-  background-color: #b33e2c !important;
-  font-weight: 600;
+  background-color: #44C97D;
+  color: white;
+  font-weight: 700;
   font-size: 15px;
+  border-radius: 35px;
+  padding: 10px 35px;
+}
+
+.btn-solid-secondary:hover {
+  background-color: #2cb367;
+}
+
+.btn-solid-secondary:active {
+  background-color: #2cb367 !important;
 }
 
 
@@ -161,18 +171,25 @@ a {
   top: 30%;
 }
 
+.wc-50 {
+  width: 50%;
+}
+
+.wt-25 {
+  width: 50%;
+}
 
 
 .carousel-heading {
   font-size: 60px;
   font-family: 'Quicksand', sans-serif !important;
-  font-weight: 700;
+  font-weight: 700 !important;
   z-index: 999;
 }
 
 .carousel-desc {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 400 !important;
   font-size: 24px;
 }
 .carousel-image {
@@ -184,7 +201,7 @@ a {
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.5) !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
 }
 
 .newletter-heading {
@@ -222,7 +239,18 @@ a {
     font-weight: 400;
     font-size: 16px;
   }
+
+  .wc-50 {
+    width: 75% !important;
+    margin: 0;
+  }
+  .wt-25 {
+    width: 25% !important;
+    margin: 0;
+  }
+
 }
+ 
 
 
 /*FONTS*/

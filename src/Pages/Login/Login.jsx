@@ -68,6 +68,7 @@ const Login = () => {
 
   return (
     <div className="">
+      <h1 className="text-center mt-3 mb-5">Register</h1>
       <Container fluid>
         <Row>
           <Col className="vertical-height d-none d-md-block" md={5}>
