@@ -54,7 +54,7 @@ const NavigationBar = () => {
               {user ?
                 <>
                   <NavLink
-                    to="/blog"
+                    to="/blogs"
                     className={({ isActive }) =>
                       isActive
                         ? "navlink me-md-4 mb-md-0 mb-2 text-primary"

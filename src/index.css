@@ -45,7 +45,7 @@ a {
 }
 
 .border-color {
-  border-color: #E35640 !important;
+  border-color: salmon !important;
 }
 
 .bg-primary {
@@ -58,6 +58,10 @@ a {
 
 .bg-tertiary {
   background-color:  #44C97D !important;;
+}
+
+.bg-special {
+  background-color: #EA4A30;
 }
 
 .btn-outline-primary {
