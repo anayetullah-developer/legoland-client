@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Lottie from "lottie-react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
@@ -11,6 +11,9 @@ const Login = () => {
   const [error, setError] = useState("");
   const [show, setShow] = useState(false);
   const [inputType, setInputType] = useState("password");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const showPassword = (condition) => {
     setShow(!show)
@@ -21,11 +24,6 @@ const Login = () => {
     }
   }
 
-  const navigate = useNavigate();
-
-  // const location = useLocation();
-  // const from = location?.state?.from?.pathname || "/";
-
   const loginHandler = (e) => {
     e.preventDefault();
 
@@ -35,8 +33,7 @@ const Login = () => {
 
     loginUser(email, password)
       .then(() => {
-        navigate("/");
-        // navigate(from, { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -61,8 +58,7 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     loginWithGoogle()
       .then(() => {
-        navigate("/");
-        // navigate(from, { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -81,7 +77,7 @@ const Login = () => {
             </div>
           </Col>
           <Col className="bg-tertiary vertical-height" md={7}>
-            <div className="p-md-5 w-75 mx-auto">
+            <div className="p-md-5 mt-5 mt-md-0 w-75 mx-auto">
               <Form className="" onSubmit={loginHandler}>
                 <Form.Group className="mb-3" controlId="2">
                   <Form.Label className="text-white">Email address</Form.Label>

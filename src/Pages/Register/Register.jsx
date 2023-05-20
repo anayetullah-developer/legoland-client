@@ -102,7 +102,7 @@ const Register = () => {
             </div>
           </Col>
           <Col className="bg-tertiary vertical-height" md={7}>
-            <div className="p-md-5 w-75 mx-auto">
+            <div className="p-md-5 mt-5 mt-md-0 w-75 mx-auto">
               <Form className="" onSubmit={submitHandler}>
                 <Form.Group className="mb-3" controlId="">
                   <Form.Label className="text-white">Name</Form.Label>
@@ -159,7 +159,7 @@ const Register = () => {
                 </Form.Group>
                 <Button
                   type="submit"
-                  className="mb-2 bg-white text-tertiary border-0"
+                  className="mb-2 bg-white text-tertiary fw-bold border-0"
                 >
                   Register
                 </Button>

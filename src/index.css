@@ -29,7 +29,9 @@ a {
 .text-primary {
   color: #181D4E !important;
 }
-
+.text-dim {
+  color: #D0D3DC;
+}
 .text-secondary {
     color: #12AEE0  !important;
 }
