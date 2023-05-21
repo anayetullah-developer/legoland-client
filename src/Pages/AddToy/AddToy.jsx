@@ -1,10 +1,15 @@
 import { useContext, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { useNavigate } from "react-router-dom";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
   const [subCategory, setSubCategory] = useState("");
+  const MySwal = withReactContent(Swal);
+  const navigate = useNavigate();
 
   const handleSubCategory = (e) => {
     setSubCategory(e.target.value)
@@ -23,8 +28,7 @@ const AddToy = () => {
     const sellerName = user?.displayName;
     // const category =  form.category.value;
     // const subcategory =  form.subCategory.value;
-    console.log(name, email);
-
+    
     const toyInfo = {
       email, productName, url, price, description, color, rating, sellerName, subCategory, quantity
     };
@@ -38,9 +42,13 @@ const AddToy = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result.insertedId) {
-          alert("Inserted Successfully");
+          MySwal.fire({
+            title: <p>Item added successfully</p>,
+            icon: "success",
+          });
+
+          navigate("/my-toys")
         }
       });
   };
@@ -54,6 +62,7 @@ const AddToy = () => {
             <Form.Control
               type="text"
               name="productName"
+              required
               placeholder="Name"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
             />
@@ -62,6 +71,7 @@ const AddToy = () => {
             <Form.Control
               type="text"
               name="price"
+              required
               placeholder="Price"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
             />
@@ -70,6 +80,7 @@ const AddToy = () => {
             <Form.Control
               type="text"
               name="color"
+              required
               placeholder="Color"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
             />
@@ -80,12 +91,14 @@ const AddToy = () => {
           <Form.Control
               type="number"
               name="quantity"
+              required
               placeholder="Available Quantity"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
             />
           </Col>
           <Col md={4} sm={6}>
             <Form.Select
+              required
               aria-label="Default select example"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
               onChange={handleSubCategory}
@@ -98,6 +111,7 @@ const AddToy = () => {
           </Col>
           <Col md={4} sm={6}>
           <Form.Control
+            required
               type="url"
               placeholder="Photo Url"
               name="url"
@@ -118,6 +132,7 @@ const AddToy = () => {
           <Col md={4} sm={6}>
             <Form.Control
               type="text"
+              required
               name="rating"
               placeholder="Rating"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
@@ -127,6 +142,7 @@ const AddToy = () => {
             <Form.Control
               type="text"
               name="sellerName"
+              required
               defaultValue={user?.displayName}
               placeholder="Seller name"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
@@ -136,7 +152,7 @@ const AddToy = () => {
     
         <Row>
           <Col>
-            <textarea className="form-control wc-50 mx-auto p-md-5 p-4" name="description" id="" cols="30" rows="2" placeholder="Write product description in details"></textarea>
+            <textarea className="form-control wc-50 mx-auto p-md-5 p-4" required name="description" id="" cols="30" rows="2" placeholder="Write product description in details"></textarea>
           </Col>
         </Row>
         <button className="btn btn-solid-secondary d-block wt-50 mx-auto mt-3">

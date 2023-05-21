@@ -2,10 +2,23 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const MyToys = () => {
+
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+  const MySwal = withReactContent(Swal);
+  const swalInfo = {
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#12AEE0',
+    cancelButtonColor: '#2cb367',
+    confirmButtonText: 'Yes, delete it!'
+  }
 
   useEffect(() => {
     fetch(`http://localhost:5005/all-toys?email=${user?.email}`)
@@ -16,26 +29,33 @@ const MyToys = () => {
   }, [user, myToys]);
 
   const handleDelete = (id) => {
-    const proceed = confirm("Do you want to delete this item?");
-    if (proceed) {
-      fetch(`http://localhost:5005/all-toys/${id}`, {
+    MySwal.fire(swalInfo).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5005/all-toys/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
           if (data.deletedCount) {
-            alert("Item deleted");
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
             const remaining = myToys.filter((toy) => toy._id !== id);
             setMyToys(remaining);
           }
         });
-    }
+
+      }
+  })
+    
   };
   return (
-    <div className="p-3">
+    <div className="p-3 wc-75 mx-auto bg-tertiary-subtle rounded">
       <h1 className="text-center mt-3 mb-5">All Toys</h1>
-      <div className="bg-tertiary-subtle rounded">
+      <div className="">
         <Table responsive="md" className="table-striped">
           <thead>
             <tr>

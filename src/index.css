@@ -181,6 +181,11 @@ a {
   width: 50%;
 }
 
+.wc-75 {
+  width: 75%;
+}
+
+
 .wt-25 {
   width: 50%;
 }
@@ -253,6 +258,9 @@ a {
   .wc-50 {
     width: 75% !important;
     margin: 0;
+  }
+  .wc-75 {
+    width: 100% !important;
   }
   .wt-25 {
     width: 25% !important;

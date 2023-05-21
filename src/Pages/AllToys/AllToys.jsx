@@ -13,9 +13,9 @@ const AllToys = () => {
   }, []);
 
   return (
-    <div className="p-3">
+    <div className="p-3 bg-tertiary-subtle rounded wc-75 mx-auto">
       <h1 className="text-center mt-3 mb-5">All Toys</h1>
-      <div className="bg-tertiary-subtle rounded">
+      <div className="">
         <Table responsive="md" className="table-striped">
           <thead>
             <tr>

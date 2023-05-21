@@ -1,9 +1,13 @@
 import { Col, Form, Row } from "react-bootstrap";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const UpdateToy = () => {
+  const MySwal = withReactContent(Swal);
+  const navigate = useNavigate();
   const singleToy  = useLoaderData()
   const {_id, productName, url, price, description, color, rating, quantity } = singleToy;
   const {user} = useContext(AuthContext);
@@ -37,7 +41,17 @@ const UpdateToy = () => {
       body: JSON.stringify(toyInfo)
     })
     .then(res => res.json())
-    .then(result => console.log(result))
+    .then(result => {
+      if(result.modifiedCount > 0) {
+        MySwal.fire({
+          title: <p>Item updated successfully</p>,
+          icon: "success",
+        });
+
+        navigate ("/my-toys")
+      }
+      console.log(result)
+    })
   
   };
  
