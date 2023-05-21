@@ -136,7 +136,7 @@ const AddToy = () => {
     
         <Row>
           <Col>
-            <textarea className="form-control w-50 mx-auto p-5" name="description" id="" cols="30" rows="2" placeholder="Write product description in details"></textarea>
+            <textarea className="form-control wc-50 mx-auto p-md-5 p-4" name="description" id="" cols="30" rows="2" placeholder="Write product description in details"></textarea>
           </Col>
         </Row>
         <button className="btn btn-solid-secondary d-block wt-50 mx-auto mt-3">
