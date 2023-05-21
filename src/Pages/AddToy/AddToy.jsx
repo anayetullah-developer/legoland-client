@@ -3,14 +3,12 @@ import { Col, Form, Row } from "react-bootstrap";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { useNavigate } from "react-router-dom";
+
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
   const [subCategory, setSubCategory] = useState("");
   const MySwal = withReactContent(Swal);
-  const navigate = useNavigate();
-
   const handleSubCategory = (e) => {
     setSubCategory(e.target.value)
   }

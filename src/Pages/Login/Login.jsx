@@ -41,20 +41,6 @@ const Login = () => {
       });
   };
 
-  // const handleGithubSignIn = () => {
-  //   loginWithGithub()
-  //     .then((result) => {
-  //       navigate("/");
-  //       // if (result) {
-  //       //   navigate(from, { replace: true });
-  //       // }
-  //     })
-  //     .catch((error) => {
-  //       const errorMessage = error.message;
-  //       setError(errorMessage);
-  //     });
-  // };
-
   const handleGoogleSignIn = () => {
     loginWithGoogle()
       .then(() => {
@@ -68,7 +54,7 @@ const Login = () => {
 
   return (
     <div className="">
-      <h1 className="text-center mt-3 mb-5">Register</h1>
+      <h1 className="text-center mt-3 mb-5">Login</h1>
       <Container fluid>
         <Row>
           <Col className="vertical-height d-none d-md-block" md={5}>
@@ -77,7 +63,7 @@ const Login = () => {
               <Lottie animationData={regianimation} loop={true} />
             </div>
           </Col>
-          <Col className="bg-tertiary vertical-height" md={7}>
+          <Col className="bg-tertiary rounded vertical-height" md={7}>
             <div className="p-md-5 mt-5 mt-md-0 w-75 mx-auto">
               <Form className="" onSubmit={loginHandler}>
                 <Form.Group className="mb-3" controlId="2">

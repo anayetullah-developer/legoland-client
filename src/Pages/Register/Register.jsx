@@ -93,7 +93,7 @@ const Register = () => {
 
   return (
     <div className="">
-      <h1 className="text-center mb-5 mt-3">Login</h1>
+      <h1 className="text-center mb-5 mt-3">Register</h1>
       <Container fluid>
         <Row>
           <Col className="vertical-height d-none d-md-block" md={5}>
@@ -102,7 +102,7 @@ const Register = () => {
               <Lottie animationData={regAnimation} loop={true} />
             </div>
           </Col>
-          <Col className="bg-tertiary vertical-height" md={7}>
+          <Col className="bg-tertiary rounded vertical-height" md={7}>
             <div className="p-md-5 mt-5 mt-md-0 w-75 mx-auto">
               <Form className="" onSubmit={submitHandler}>
                 <Form.Group className="mb-3" controlId="">
