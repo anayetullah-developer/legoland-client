@@ -1,52 +1,16 @@
-import { useContext, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { AuthContext } from "../../providers/AuthProvider";
+import { useContext, useState } from "react";
 
-const AddToy = () => {
+const UpdateToy = () => {
   const { user } = useContext(AuthContext);
   const [subCategory, setSubCategory] = useState("");
-
+  
   const handleSubCategory = (e) => {
     setSubCategory(e.target.value)
   }
-  const handleAddItem = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const email = user?.email;
-    const productName = form.productName.value;
-    const url = form.url.value;
-    const price = form.price.value;
-    const description =  form.description.value;
-    const quantity = form.quantity.value;
-    const color = form.color.value;
-    const rating = form.rating.value;
-    const sellerName = user?.displayName;
-    // const category =  form.category.value;
-    // const subcategory =  form.subCategory.value;
-    console.log(name, email);
-
-    const toyInfo = {
-      email, productName, url, price, description, color, rating, sellerName, subCategory, quantity
-    };
-
-    fetch("http://localhost:5005/addToy", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(toyInfo),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        if (result.insertedId) {
-          alert("Inserted Successfully");
-        }
-      });
-  };
-
-  return (
-    <div className="container bg-secondary-subtle p-5 rounded-3">
+    return (
+        <div className="container bg-secondary-subtle p-5 rounded-3">
       <h1 className="text-center mt-3 mb-5">Add a toy</h1>
       <Form onSubmit={handleAddItem}>
         <Row>
@@ -144,7 +108,7 @@ const AddToy = () => {
         </button>
       </Form>
     </div>
-  );
+    );
 };
 
-export default AddToy;
+export default UpdateToy;

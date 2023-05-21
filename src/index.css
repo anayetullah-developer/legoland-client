@@ -6,13 +6,13 @@ h1, h2, h3, h4, h5, h6, .card-title {
     font-weight: 700;
 }
 
-a, button, input, li {
+a, button, input, li, textarea {
     font-family: 'Quicksand', sans-serif !important;
     font-weight: 700;
 
 }
 
-p, card-text {
+p, .card-text, .product-price {
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
 }
@@ -55,9 +55,15 @@ a {
 .bg-secondary {
   background-color: #12AEE0  !important;
 }
+.bg-secondary-subtle {
+  background-color: #a4e3f8  !important;
+}
 
 .bg-tertiary {
   background-color:  #44C97D !important;;
+}
+.bg-tertiary-subtle {
+  background-color:  #90fcbf !important;;
 }
 
 .bg-special {
@@ -221,7 +227,11 @@ a {
     cursor: pointer !important;
 }
 
+.product-price {
 
+}
+
+/*--------------------Media query -----------------*/
 @media screen and (max-width: 576px) {
   .carousel-image {
     height: 50vh;

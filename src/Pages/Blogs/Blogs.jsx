@@ -1,5 +1,3 @@
-import React from "react";
-import { Card, Col, Row } from "react-bootstrap";
 import database from "../../assets/blog/server.png";
 import nodejs from "../../assets/blog/nodejs.png";
 import express from "../../assets/blog/expressjs.png";
@@ -11,7 +9,7 @@ const Blogs = () => {
     <h1 className="text-center my-5">Blogs</h1>
       <div className="row">
         <div className="col-md-6">
-          <div className="card mb-3 shadow-lg" style={{ "max-width": "540px" }}>
+          <div className="card mb-3 shadow-lg" style={{ maxWidth: "540px" }}>
             <div className="row g-0">
               <div className="col-md-4">
                 <img
