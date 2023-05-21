@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -12,9 +13,8 @@ const MyToys = () => {
       .then((data) => {
         setMyToys(data);
       });
-  }, [user]);
+  }, [user, myToys]);
 
-  
   const handleDelete = (id) => {
     const proceed = confirm("Do you want to delete this item?");
     if (proceed) {
@@ -59,9 +59,12 @@ const MyToys = () => {
                   <td>{toy.sellerName}</td>
                   <td>{toy.subCategory}</td>
                   <td>
-                  <button className=" btn btn-solid-secondary py-1 px-2 me-2">
-                      Update
-                    </button>
+                    <Link to={`/my-toys/${toy._id}`}>
+                      <button className=" btn btn-solid-secondary py-1 px-2 me-2">
+                        Edit
+                      </button>
+                    </Link>
+
                     <button
                       className=" btn btn-solid-secondary py-1 px-2"
                       onClick={() => handleDelete(toy._id)}
