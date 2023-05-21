@@ -47,8 +47,6 @@ const AddToy = () => {
             title: <p>Item added successfully</p>,
             icon: "success",
           });
-
-          navigate("/my-toys")
         }
       });
   };
