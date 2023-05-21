@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAR_NHQpPkPTMWh7F_-vgKSoIRlTSo0xNM",
-  authDomain: "legoland-market.firebaseapp.com",
-  projectId: "legoland-market",
-  storageBucket: "legoland-market.appspot.com",
-  messagingSenderId: "938226546312",
-  appId: "1:938226546312:web:335ea687d7fd4ec5a8113d"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
