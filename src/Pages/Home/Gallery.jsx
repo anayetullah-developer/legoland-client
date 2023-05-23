@@ -8,7 +8,7 @@ import img4 from "../../assets/banner/3 (4).jpg";
 
 const Gallery = () => {
   return (
-    <div className="mt-5">
+    <div className="mt-5 py-5">
       <h1 className="fs1 text-center mb-4">Photo Gallery</h1>
       <CardGroup>
         <Card className="img-hover">
