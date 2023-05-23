@@ -37,7 +37,7 @@ const UpdateToy = () => {
       email, productName, url, price, description, color, rating, sellerName, subCategory, quantity
     };
 
-    fetch(`https://lego-marketplace-server.vercel.app/updateToy/${_id}`, {
+    fetch(` https://lego-marketplace-server.vercel.app/updateToy/${_id}`, {
       method: "PATCH",
       headers: {"content-type": "application/json"},
       body: JSON.stringify(toyInfo)
@@ -52,7 +52,6 @@ const UpdateToy = () => {
 
         navigate ("/my-toys")
       }
-      console.log(result)
     })
   
   };

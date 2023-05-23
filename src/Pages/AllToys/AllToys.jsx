@@ -6,10 +6,9 @@ import useTitle from "../../Hooks/useTitle";
 const AllToys = () => {
   useTitle("All Toys")
   const [toys, setToys] = useState([]);
-  console.log(toys);
-
+  
   useEffect(() => {
-    fetch(`https://lego-marketplace-server.vercel.app/toys`)
+    fetch(` https://lego-marketplace-server.vercel.app/toys`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -17,7 +16,7 @@ const AllToys = () => {
 
   const handleToySearch = (e) => {
     const text = e.target.value;
-    fetch(`https://lego-marketplace-server.vercel.app/productSearch/${text}`)
+    fetch(` https://lego-marketplace-server.vercel.app/productSearch/${text}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }

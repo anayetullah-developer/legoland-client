@@ -6,13 +6,13 @@ import CategoryCard from "./CategoryCard";
 const Category = () => {
   const [category, setCategory] = useState("cars");
   const [toys, setToys] = useState([]);
-  console.log(toys);
+ 
   const handleCategory = (category) => {
     setCategory(category);
   };
 
   useEffect(() => {
-    fetch(`https://lego-marketplace-server.vercel.app/toys/${category}`)
+    fetch(` https://lego-marketplace-server.vercel.app/toys/${category}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [category]);

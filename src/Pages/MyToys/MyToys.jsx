@@ -28,7 +28,7 @@ const MyToys = () => {
   }
 
   useEffect(() => {
-    fetch(`https://lego-marketplace-server.vercel.app/all-toys?email=${user?.email}&&sort=${sorting === 'descending' ? 'descending' : 'ascending'}`)
+    fetch(` https://lego-marketplace-server.vercel.app/all-toys?email=${user?.email}&&sort=${sorting === 'descending' ? 'descending' : 'ascending'}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
@@ -38,12 +38,11 @@ const MyToys = () => {
   const handleDelete = (id) => {
     MySwal.fire(swalInfo).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://lego-marketplace-server.vercel.app/all-toys/${id}`, {
+        fetch(` https://lego-marketplace-server.vercel.app/all-toys/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.deletedCount) {
             Swal.fire(
               'Deleted!',

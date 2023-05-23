@@ -33,10 +33,10 @@ const AddToy = () => {
       email, productName, url, price, description, color, rating, sellerName, subCategory, quantity
     };
 
-    console.log(toyInfo);
+
     
 
-    fetch("https://lego-marketplace-server.vercel.app/addToy", {
+    fetch(" https://lego-marketplace-server.vercel.app/addToy", {
       method: "POST",
       headers: {
         "content-type": "application/json",

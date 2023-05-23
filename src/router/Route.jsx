@@ -12,52 +12,66 @@ import UpdateToy from "../Pages/Update/UpdateToy";
 import Error from "../Pages/Error/Error";
 import ProtectedRoute from "./ProtectedRoute";
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main/>,
-      errorElement: <Error/>,
-      children: [
-        {
-          path: "/",
-          element: <Home/>
-        },
-        {
-          path: "add-toy",
-          element: <ProtectedRoute><AddToy/></ProtectedRoute>
-        },
-        {
-          path: "all-toys",
-          element: <AllToys/>
-        },
-        {
-          path: "all-toys/:id",
-          element: <ProtectedRoute><SingleToy/></ProtectedRoute>,
-          loader: ({params}) => fetch(`https://lego-marketplace-server.vercel.app/all-toys/${params.id}`)
-        },
-        {
-          path: "my-toys",
-          element: <ProtectedRoute><MyToys/></ProtectedRoute>,
-        },
-        {
-          path: "my-toys/:id",
-          element: <UpdateToy/>,
-          loader: ({params}) => fetch(`https://lego-marketplace-server.vercel.app/all-toys/${params.id}`)
-        },
-        {
-          path: "blogs",
-          element: <Blogs/>
-        },
-        {
-          path: "login",
-          element: <Login/>
-        },
-        {
-          path: "register",
-          element: <Register/>
-        }
-      ]
-    }
-  ]);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Main />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "add-toy",
+        element: (
+          <ProtectedRoute>
+            <AddToy />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "all-toys",
+        element: <AllToys />,
+      },
+      {
+        path: "all-toys/:id",
+        element: (
+          <ProtectedRoute>
+            <SingleToy />
+          </ProtectedRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(` https://lego-marketplace-server.vercel.app/all-toys/${params.id}`),
+      },
+      {
+        path: "my-toys",
+        element: (
+          <ProtectedRoute>
+            <MyToys />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "my-toys/:id",
+        element: <UpdateToy />,
+        loader: ({ params }) =>
+          fetch(` https://lego-marketplace-server.vercel.app/all-toys/${params.id}`),
+      },
+      {
+        path: "blogs",
+        element: <Blogs />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+    ],
+  },
+]);
 
-  export default router;
+export default router;

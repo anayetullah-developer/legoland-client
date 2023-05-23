@@ -1,6 +1,5 @@
 import { Card, Col, Row } from "react-bootstrap";
 import img1 from "../../assets/testimonials/1.jpg";
-import img2 from "../../assets/testimonials/2.jpg";
 const Testimonial = () => {
   return (
     <div className="testimonial-bg py-md-4 my-5">
