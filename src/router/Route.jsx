@@ -33,7 +33,7 @@ import ProtectedRoute from "./ProtectedRoute";
         {
           path: "all-toys/:id",
           element: <ProtectedRoute><SingleToy/></ProtectedRoute>,
-          loader: ({params}) => fetch(`http://localhost:2000/all-toys/${params.id}`)
+          loader: ({params}) => fetch(`https://lego-marketplace-server.vercel.app/all-toys/${params.id}`)
         },
         {
           path: "my-toys",
@@ -42,7 +42,7 @@ import ProtectedRoute from "./ProtectedRoute";
         {
           path: "my-toys/:id",
           element: <UpdateToy/>,
-          loader: ({params}) => fetch(`http://localhost:2000/all-toys/${params.id}`)
+          loader: ({params}) => fetch(`https://lego-marketplace-server.vercel.app/all-toys/${params.id}`)
         },
         {
           path: "blogs",

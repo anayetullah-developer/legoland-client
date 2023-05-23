@@ -9,7 +9,7 @@ const AllToys = () => {
   console.log(toys);
 
   useEffect(() => {
-    fetch(`http://localhost:2000/toys`)
+    fetch(`https://lego-marketplace-server.vercel.app/toys`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -17,7 +17,7 @@ const AllToys = () => {
 
   const handleToySearch = (e) => {
     const text = e.target.value;
-    fetch(`http://localhost:2000/productSearch/${text}`)
+    fetch(`https://lego-marketplace-server.vercel.app/productSearch/${text}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }

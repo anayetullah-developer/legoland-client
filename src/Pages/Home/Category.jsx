@@ -12,7 +12,7 @@ const Category = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:2000/toys/${category}`)
+    fetch(`https://lego-marketplace-server.vercel.app/toys/${category}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [category]);

@@ -36,7 +36,7 @@ const AddToy = () => {
     console.log(toyInfo);
     
 
-    fetch("http://localhost:2000/addToy", {
+    fetch("https://lego-marketplace-server.vercel.app/addToy", {
       method: "POST",
       headers: {
         "content-type": "application/json",
