@@ -1,8 +1,8 @@
 import { Carousel } from "react-bootstrap";
 // import img1 from "../../assets/banner/1.jpg";
-import img2 from "../../assets/banner/2.jpg";
-import img3 from "../../assets/banner/3.jpg";
-import img4 from "../../assets/banner/4.jpg";
+import img2 from "../../assets/banner/1.jpg";
+import img3 from "../../assets/banner/2.jpg";
+import img4 from "../../assets/banner/3.jpg";
 const Slider = () => {
   return (
     <div>
@@ -41,7 +41,7 @@ const Slider = () => {
               Pick the best toy for your kids
             </h2>
             <p className="carousel-desc">
-              We offer a premium service whether you are shopping at one of our flagship stores or via online w-50 mx-auto
+              We offer a premium service whether you are shopping at one of our flagship stores or via online
             </p>
             <button className="btn btn-solid-primary">Discover Now</button>
           </Carousel.Caption>
@@ -56,9 +56,8 @@ const Slider = () => {
            <div className="position-absolute top-0 start-0 overlay d-block w-100 h-100">hi</div></div>
           <Carousel.Caption className="top-25 z-index wc-50 mx-auto">
             <h2 className="carousel-heading">We instruct you how to prepare</h2>
-            {/* <p className="carousel-desc">
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p> */}
+            <p className="carousel-desc">
+            Get ready to tackle any challenge with our comprehensive instruction guide. From DIY projects to outdoor adventures, we've got you covered</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

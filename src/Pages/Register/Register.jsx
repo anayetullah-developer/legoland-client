@@ -5,8 +5,10 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Lottie from "lottie-react";
 import regAnimation from "../../assets/134945-zpunet-icon.json";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import useTitle from "../../Hooks/useTitle";
 
 const Register = () => {
+  useTitle("Register")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [Emailerror, setEmailError] = useState("");

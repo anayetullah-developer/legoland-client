@@ -5,8 +5,10 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Lottie from "lottie-react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import regianimation from "../../assets/134945-zpunet-icon.json";
+import useTitle from "../../Hooks/useTitle";
 
 const Login = () => {
+  useTitle("Login")
   const { loginUser, loginWithGoogle } = useContext(AuthContext); //loading }
   const [error, setError] = useState("");
   const [show, setShow] = useState(false);

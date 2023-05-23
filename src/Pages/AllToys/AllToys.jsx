@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import useTitle from "../../Hooks/useTitle";
 
 const AllToys = () => {
+  useTitle("All Toys")
   const [toys, setToys] = useState([]);
   console.log(toys);
 
   useEffect(() => {
-    fetch(`http://localhost:5005/toys`)
+    fetch(`http://localhost:2000/toys`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -15,13 +17,13 @@ const AllToys = () => {
 
   const handleToySearch = (e) => {
     const text = e.target.value;
-    fetch(`http://localhost:5005/productSearch/${text}`)
+    fetch(`http://localhost:2000/productSearch/${text}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }
 
   return (
-    <div className="p-3 bg-tertiary-subtle rounded wc-75 mx-auto">
+    <div className="p-3 rounded wc-75 mx-auto">
       <h1 className="text-center mt-3 mb-5">All Toys</h1>
       <div className="">
         <div className="wc-50 mx-auto mb-3">
@@ -29,7 +31,7 @@ const AllToys = () => {
             <Form.Control
             onChange={handleToySearch}
               type="search"
-              placeholder="Search"
+              placeholder="Search product by name"
               className="me-2 p-2 rounded"
               aria-label="Search"
             />
@@ -53,9 +55,9 @@ const AllToys = () => {
               <>
                 <tr key={toy._id}>
                   <td>{idx + 1}</td>
-                  <td>T{toy.productName}</td>
+                  <td>{toy.productName}</td>
                   <td>{toy.price}</td>
-                  <td>T{toy.quantity}</td>
+                  <td>{toy.quantity}</td>
                   <td>{toy.sellerName}</td>
                   <td>{toy.subCategory}</td>
                   <td>

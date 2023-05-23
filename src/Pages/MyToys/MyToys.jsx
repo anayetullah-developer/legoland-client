@@ -4,10 +4,13 @@ import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import useTitle from "../../Hooks/useTitle";
+import { TbSortDescending, TbSortAscending } from "react-icons/tb";
 
 const MyToys = () => {
-
+  useTitle("My Toys");
   const { user } = useContext(AuthContext);
+  const [sorting, setSorting] = useState('descending');
   const [myToys, setMyToys] = useState([]);
   const MySwal = withReactContent(Swal);
   const swalInfo = {
@@ -20,8 +23,12 @@ const MyToys = () => {
     confirmButtonText: 'Yes, delete it!'
   }
 
+  const handleSorting = (sortBy) => {
+    setSorting(sortBy);
+  }
+
   useEffect(() => {
-    fetch(`http://localhost:5005/all-toys?email=${user?.email}`)
+    fetch(`http://localhost:2000/all-toys?email=${user?.email}&&sort=${sorting === 'descending' ? 'descending' : 'ascending'}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
@@ -31,7 +38,7 @@ const MyToys = () => {
   const handleDelete = (id) => {
     MySwal.fire(swalInfo).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5005/all-toys/${id}`, {
+        fetch(`http://localhost:2000/all-toys/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -55,6 +62,11 @@ const MyToys = () => {
   return (
     <div className="p-3 wc-75 mx-auto bg-tertiary-subtle rounded">
       <h1 className="text-center mt-3 mb-5">All Toys</h1>
+      <div className="wc-50 mx-auto text-center mb-3">
+        <h6>Sort By price:</h6>
+        <TbSortDescending className="fs-3 me-3 cursor-pointer" onClick={() => handleSorting('descending')}/>
+        <TbSortAscending className="fs-3 cursor-pointer" onClick={() => handleSorting('ascending')}/>
+      </div>
       <div className="">
         <Table responsive="md" className="table-striped">
           <thead>
@@ -73,9 +85,9 @@ const MyToys = () => {
               <>
                 <tr key={toy._id}>
                   <td>{idx + 1}</td>
-                  <td>T{toy.productName}</td>
+                  <td>{toy.productName}</td>
                   <td>{toy.price}</td>
-                  <td>T{toy.quantity}</td>
+                  <td>{toy.quantity}</td>
                   <td>{toy.sellerName}</td>
                   <td>{toy.subCategory}</td>
                   <td>

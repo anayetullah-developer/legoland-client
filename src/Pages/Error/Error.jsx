@@ -2,10 +2,12 @@ import { Card } from "react-bootstrap";
 import { useRouteError } from "react-router-dom";
 import errorImg from "../../assets/84885-404-sleep-cat.json"
 import Lottie from "lottie-react";
+import useTitle from "../../Hooks/useTitle";
 
 
 const Error = () => {
   const { error, status } = useRouteError();
+  useTitle('404')
   return (
     <div className="container">
       <Card className="mt-5 border-0">

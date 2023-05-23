@@ -4,8 +4,10 @@ import { useContext, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import useTitle from "../../Hooks/useTitle";
 
 const UpdateToy = () => {
+  useTitle("Update Toy")
   const MySwal = withReactContent(Swal);
   const navigate = useNavigate();
   const singleToy  = useLoaderData()
@@ -35,7 +37,7 @@ const UpdateToy = () => {
       email, productName, url, price, description, color, rating, sellerName, subCategory, quantity
     };
 
-    fetch(`http://localhost:5005/updateToy/${_id}`, {
+    fetch(`http://localhost:2000/updateToy/${_id}`, {
       method: "PATCH",
       headers: {"content-type": "application/json"},
       body: JSON.stringify(toyInfo)
@@ -71,7 +73,7 @@ const UpdateToy = () => {
           </Col>
           <Col md={4} sm={6}>
             <Form.Control
-              type="text"
+              type="number"
               name="price"
               defaultValue={price}
               placeholder="Price"
@@ -104,10 +106,10 @@ const UpdateToy = () => {
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
               onChange={handleSubCategory}
             >
-              <option>Select Category</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+               <option>Select a sub category</option>
+              <option value="cars">cars</option>
+              <option value="figures">Figures</option>
+              <option value="architecture">Architecture</option>
             </Form.Select>
           </Col>
           <Col md={4} sm={6}>

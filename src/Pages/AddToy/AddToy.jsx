@@ -3,9 +3,11 @@ import { Col, Form, Row } from "react-bootstrap";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import useTitle from "../../Hooks/useTitle";
 
 
 const AddToy = () => {
+  useTitle("Add Toy");
   const { user } = useContext(AuthContext);
   const [subCategory, setSubCategory] = useState("");
   const MySwal = withReactContent(Swal);
@@ -31,7 +33,10 @@ const AddToy = () => {
       email, productName, url, price, description, color, rating, sellerName, subCategory, quantity
     };
 
-    fetch("http://localhost:5005/addToy", {
+    console.log(toyInfo);
+    
+
+    fetch("http://localhost:2000/addToy", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -58,16 +63,15 @@ const AddToy = () => {
             <Form.Control
               type="text"
               name="productName"
-              required
+              
               placeholder="Name"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
             />
           </Col>
           <Col md={4} sm={6}>
             <Form.Control
-              type="text"
+              type="number"
               name="price"
-              required
               placeholder="Price"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
             />
@@ -76,7 +80,7 @@ const AddToy = () => {
             <Form.Control
               type="text"
               name="color"
-              required
+              
               placeholder="Color"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
             />
@@ -87,27 +91,27 @@ const AddToy = () => {
           <Form.Control
               type="number"
               name="quantity"
-              required
+              
               placeholder="Available Quantity"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
             />
           </Col>
           <Col md={4} sm={6}>
             <Form.Select
-              required
+              
               aria-label="Default select example"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
               onChange={handleSubCategory}
             >
-              <option>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option>Select a sub category</option>
+              <option value="cars">Cars</option>
+              <option value="figures">Figures</option>
+              <option value="architecture">Architecture</option>
             </Form.Select>
           </Col>
           <Col md={4} sm={6}>
           <Form.Control
-            required
+            
               type="url"
               placeholder="Photo Url"
               name="url"
@@ -128,7 +132,7 @@ const AddToy = () => {
           <Col md={4} sm={6}>
             <Form.Control
               type="text"
-              required
+              
               name="rating"
               placeholder="Rating"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
@@ -138,7 +142,7 @@ const AddToy = () => {
             <Form.Control
               type="text"
               name="sellerName"
-              required
+              
               defaultValue={user?.displayName}
               placeholder="Seller name"
               className="pt-2 pb-2 pe-2 ps-4 rounded-pill mb-3"
@@ -148,7 +152,7 @@ const AddToy = () => {
     
         <Row>
           <Col>
-            <textarea className="form-control wc-50 mx-auto p-md-5 p-4" required name="description" id="" cols="30" rows="2" placeholder="Write product description in details"></textarea>
+            <textarea className="form-control wc-50 mx-auto p-md-5 p-4"  name="description" id="" cols="30" rows="2" placeholder="Write product description in details"></textarea>
           </Col>
         </Row>
         <button className="btn btn-solid-secondary d-block wt-50 mx-auto mt-3">

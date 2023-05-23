@@ -1,7 +1,9 @@
 import { Col, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../Hooks/useTitle";
 
 const SingleToy = () => {
+  useTitle("Toy Details")
   const singleToy = useLoaderData();
   return (
     <div className="container">
