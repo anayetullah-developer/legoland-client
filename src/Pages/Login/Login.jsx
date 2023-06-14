@@ -15,6 +15,7 @@ const Login = () => {
   const [inputType, setInputType] = useState("password");
   const navigate = useNavigate();
   const location = useLocation();
+  
   const from = location?.state?.from?.pathname || "/";
 
   const showPassword = (condition) => {
